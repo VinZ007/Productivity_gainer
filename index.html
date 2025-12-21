@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Gainer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <main class="page">
+            <div class="timer">
+                <div class="timer_title">
+                    <h1>Productivity Gainer</h1>
+                </div>
+                <section class="userchoose">
+                    <div class="timechoose">
+                        <button data-time="600">10:00</button>
+                        <button data-time="1200">20:00</button>
+                        <button data-time="1800">30:00</button>
+                    </div>
+                    <div class="plant">
+                        <button id="openPlantModal">Choose Your Widget</button>
+                    </div>
+                </section>
+                <div class="timer_clock" id="timer">30:00</div>
+                <div class="plant_container">
+                    <div class="plant_stages">
+                        <img id="plantStage1" class="plant_stage active" src="img/plant1.png" alt="Plant stage 1">
+                        <img id="plantStage2" class="plant_stage" src="img/plant1_2.png" alt="Plant stage 2">
+                        <img id="plantStage3" class="plant_stage" src="img/plant1_3.png" alt="Plant stage 3">
+                        <img id="plantStage4" class="plant_stage" src="img/plant1_4.png" alt="Plant stage 4">
+                    </div>
+                </div>
+                <div class="timer_time">
+                    <button class="timer_start" id="start">▶</button>
+                    <button class="timer_reset" id="reset">↻</button>
+                    <button class="timer_stop" id="stop">■</button>
+                </div>
+            </div>
+            
+            <!-- Модальное окно для выбора растения -->
+            <div id="plantModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Choose Your Widget</h2>
+                        <span class="close-modal">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="plant-grid">
+                            <div class="plant-option" data-plant="narcissus">
+                                <div class="plant-icon">🌼</div>
+                                <h3>Narcissus</h3>
+                                <p>Ruler Of My Heart</p>
+                            </div>
+                            <div class="plant-option" data-plant="seastones">
+                                <div class="plant-icon">🌊</div>
+                                <h3>Sea Stones</h3>
+                                <p>My Clematis</p>
+                            </div>
+                            
+                        </div>
+                        <div class="selected-plant-display">
+                            <p>Selected: <span id="selectedPlant">None</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <audio id="narcissusmusic" type="audio/mp3" src="music/Ruler_Of_My_Heart.mp3"></audio>
+            <audio id="yellowmusic" type="audio/mp3" src="music/MyClematis.mp3"></audio>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
