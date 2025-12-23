@@ -1,14 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Fascinate&display=swap');
-
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', 'Arial', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #0c291f 0%, #143727 100%);
+    font-family: 'Raleway', sans-serif;
+    background: #1a1f2e;
+    color: #ffffff;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+.wrapper {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -16,250 +21,27 @@ body {
     padding: 20px;
 }
 
-.wrapper {
-    width: 100%;
-    max-width: 700px;
-    height: 90%;
-    background-color: #1a3c2f;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    border: 1px solid #2d4a3c;
-}
-
-/* Основная страница */
 .page {
-    padding: 40px;
-    background: linear-gradient(to bottom, #1e4730 0%, #1a3c2f 100%);
-    position: relative;
-    min-height: 600px;
-}
-
-/* Таймер */
-.timer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.timer_title h1 {
-    color: #d4edda;
-    font-size: 2.8rem;
-    text-align: center;
-    font-family: 'Fascinate', cursive;
-    margin-bottom: 10px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Секция выбора пользователя */
-.userchoose {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
     width: 100%;
-    max-width: 700px;
+    max-width: 1200px;
 }
 
-.timechoose {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+/* ===== ОБЩИЕ КЛАССЫ ДЛЯ ВСЕХ МАКЕТОВ ===== */
+.active-layout {
+    display: block !important;
 }
 
-.timechoose button {
-    width: 100px;
-    height: 60px;
-    background: linear-gradient(180deg, #2d5a42 0%, #234735 100%);
-    border: 2px solid #3a6b50;
-    border-radius: 12px;
-    color: #e8f5e9;
-    font-size: 1.4rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.timechoose button:hover, .timechoose button.active {
-    background: linear-gradient(180deg, #356c4e 0%, #2a5640 100%);
-    border-color: #4a7d62;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.timechoose button:active {
-    background: linear-gradient(180deg, #234735 0%, #1c3d2d 100%);
-    transform: translateY(1px);
-}
-
-.plant {
-    display: flex;
-    justify-content: center;
-    font-family: 'Caveat', cursive;
-}
-
-.plant button {
-    padding: 18px 40px;
-    background: linear-gradient(180deg, #2e7d4d 0%, #266d41 100%);
-    border: 2px solid #3d8b5c;
-    border-radius: 12px;
-    color: #f1f8e9;
-    font-size: 1.4rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    width: 100%;
-    max-width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.plant button:hover {
-    background: linear-gradient(180deg, #348a55 0%, #2c7a4a 100%);
-    border-color: #4a9a6a;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Часы таймера */
-.timer_clock {
-    font-size: 4rem;
-    font-weight: 400;
-    color: #c8e6c9;
-    background: linear-gradient(135deg, #1e4a34 0%, #2a5a44 100%);
-    padding: 5px 60px;
-    border-radius: 16px;
-    border: 2px solid #3a6b50;
-    margin: 10px 0;
-    letter-spacing: 2px;
-    box-shadow: 
-        inset 0 0 15px rgba(0, 0, 0, 0.3),
-        0 8px 20px rgba(0, 0, 0, 0.2);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-/* Контейнер для растения */
-.plant_container {
-    width: 300px;
-    height: 300px;
-    margin: 10px 0;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.plant_stages {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.plant_stage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
-}
-
-.plant_stage.active {
-    opacity: 1;
-    animation: plantPulse 2s ease-in-out infinite;
-}
-
-@keyframes plantPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-/* Кнопки управления таймером */
-.timer_time {
-    display: flex;
-    gap: 20px;
-    margin-top: 10px;
-}
-
-.timer_time button {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #e8f5e9;
-    font-size: 24px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.timer_start {
-    background: linear-gradient(180deg, #2e7d4d 0%, #266d41 100%);
-}
-
-.timer_reset {
-    background: linear-gradient(180deg, #2d5a42 0%, #234735 100%);
-}
-
-.timer_stop {
-    background: linear-gradient(180deg, #5d4037 0%, #4e342e 100%);
-}
-
-.timer_time button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.timer_time button:active {
-    transform: scale(0.98);
-}
-
-.timer_time button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-}
-
-/* Модальное окно для выбора растения */
-.modal {
+.layout-narcissus,
+.layout-seastones,
+.layout-running {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
+    animation: fadeIn 0.5s ease;
 }
 
-.modal-content {
-    background: linear-gradient(to bottom, #1e4730 0%, #1a3c2f 100%);
-    border-radius: 20px;
-    width: 90%;
-    max-width: 800px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    border: 2px solid #3a6b50;
-    animation: modalFadeIn 0.3s ease;
-}
-
-@keyframes modalFadeIn {
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -267,204 +49,1089 @@ body {
     }
 }
 
+.theme-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: #2d3548;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
 .modal-header {
-    padding: 25px 30px;
-    border-bottom: 2px solid #3a6b50;
+    padding: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .modal-header h2 {
-    color: #d4edda;
-    font-family: 'Caveat', cursive;
-    font-size: 2.2rem;
-    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: #4ecdc4;
 }
 
 .close-modal {
-    color: #e8f5e9;
-    font-size: 32px;
+    font-size: 28px;
     cursor: pointer;
-    transition: color 0.2s;
-    line-height: 1;
+    color: #ffffff;
+    transition: all 0.3s ease;
 }
 
 .close-modal:hover {
-    color: #ffccbc;
+    color: #4ecdc4;
 }
 
 .modal-body {
-    padding: 30px;
+    padding: 25px;
 }
 
 .plant-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
     margin-bottom: 30px;
 }
 
 .plant-option {
-    background: linear-gradient(180deg, #2d5a42 0%, #234735 100%);
-    border: 2px solid #3a6b50;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
     border-radius: 15px;
-    padding: 25px 20px;
+    padding: 25px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .plant-option:hover {
-    background: linear-gradient(180deg, #356c4e 0%, #2a5640 100%);
-    border-color: #4a7d62;
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #4ecdc4;
 }
 
 .plant-option.selected {
-    background: linear-gradient(180deg, #2e7d4d 0%, #266d41 100%);
-    border-color: #4a9a6a;
-    box-shadow: 0 0 0 3px rgba(74, 154, 106, 0.3);
+    background: rgba(78, 205, 196, 0.1);
+    border-color: #4ecdc4;
+    transform: translateY(-5px);
 }
 
 .plant-icon {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
+    font-size: 3em;
+    color: #4ecdc4;
+    margin-bottom: 10px;
 }
 
 .plant-option h3 {
-    color: #e8f5e9;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    margin-bottom: 5px;
 }
 
 .plant-option p {
-    color: #c8e6c9;
-    font-size: 0.95rem;
-    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.layout-preview {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.preview-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-plant {
+    font-size: 2.5em;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
 }
 
 .selected-plant-display {
-    background: linear-gradient(135deg, #1e4a34 0%, #2a5a44 100%);
-    border-radius: 12px;
-    padding: 20px;
     text-align: center;
-    border: 2px solid #3a6b50;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    font-size: 1.1em;
 }
 
-.selected-plant-display p {
-    color: #e8f5e9;
-    font-size: 1.3rem;
-    font-weight: 500;
+.selected-plant-display i {
+    color: #4ecdc4;
+    margin-right: 10px;
 }
 
-#selectedPlant {
-    color: #c8e6c9;
+/* ===== МАКЕТ NARCISSUS (ЦВЕТОК) ===== */
+.layout-narcissus .timer {
+    background: #2d3548;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.layout-narcissus .timer_title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.layout-narcissus .timer_title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #ffcc00; /* Желтый для Narcissus */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.layout-narcissus .theme-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.layout-narcissus .userchoose {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.layout-narcissus .timechoose {
+    display: flex;
+    gap: 15px;
+}
+
+.layout-narcissus .timechoose button {
+    background: #3a4359;
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 15px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.layout-narcissus .timechoose button:hover {
+    background: rgba(255, 204, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.layout-narcissus .timechoose button.active {
+    background: #ffcc00;
+    color: #2a1b3d;
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+}
+
+.layout-narcissus .plant button {
+    background: #ffcc00;
+    color: #2a1b3d;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 15px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
     font-weight: 600;
-    font-family: 'Caveat', cursive;
-    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Анимация мигания для таймера */
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+.layout-narcissus .plant button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
 }
 
-/* Адаптивность */
+.layout-narcissus .timer_clock {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 6em;
+    text-align: center;
+    color: #fff9c4;
+    margin: 30px 0;
+    text-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+    font-weight: 700;
+}
+
+.layout-narcissus .plant_container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.layout-narcissus .plant_stages {
+    position: relative;
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.layout-narcissus .plant_stage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 180px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.layout-narcissus .plant_stage.active {
+    opacity: 1;
+}
+
+.layout-narcissus .plant-status {
+    margin-top: 20px;
+}
+
+.layout-narcissus .status-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.layout-narcissus .progress-fill {
+    height: 100%;
+    background: #ffcc00;
+    width: 100%;
+    border-radius: 5px;
+    transition: width 1s ease;
+}
+
+.layout-narcissus .status-text {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.layout-narcissus .timer_time {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.layout-narcissus .timer_time button {
+    background: #3a4359;
+    color: #ffffff;
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layout-narcissus .timer_time button:hover {
+    background: #ffcc00;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3);
+}
+
+.layout-narcissus .timer_start {
+    background: #ffcc00 !important;
+    color: #2a1b3d !important;
+}
+
+.layout-narcissus .stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.layout-narcissus .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+}
+
+.layout-narcissus .stat-item i {
+    color: #ffcc00;
+    font-size: 1.3em;
+}
+
+/* ===== МАКЕТ SEA STONES (МОРЕ) ===== */
+.layout-seastones {
+    width: 100%;
+}
+
+.layout-seastones .ocean-container {
+    background: linear-gradient(to bottom, #0a2463, #1e3a8a);
+    min-height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(10, 36, 99, 0.5);
+}
+
+.layout-seastones .waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.layout-seastones .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: rgba(56, 182, 255, 0.3);
+    border-radius: 50%;
+    animation: wave-animation 10s linear infinite;
+}
+
+.layout-seastones .wave-1 {
+    animation-delay: 0s;
+    opacity: 0.5;
+}
+
+.layout-seastones .wave-2 {
+    animation-delay: -3s;
+    opacity: 0.3;
+}
+
+.layout-seastones .wave-3 {
+    animation-delay: -6s;
+    opacity: 0.2;
+}
+
+@keyframes wave-animation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-25%); }
+    100% { transform: translateX(-50%); }
+}
+
+.layout-seastones .sea-timer {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.layout-seastones .sea-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.layout-seastones .sea-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #a5d8ff;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-shadow: 0 2px 10px rgba(56, 182, 255, 0.5);
+}
+
+.layout-seastones .sea-theme {
+    display: flex;
+    justify-content: center;
+}
+
+.layout-seastones .sea-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.layout-seastones .sea-time-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.layout-seastones .sea-btn {
+    background: rgba(37, 99, 235, 0.3);
+    color: #e6f7ff;
+    border: 2px solid #38b6ff;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.layout-seastones .sea-btn:hover {
+    background: rgba(56, 182, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(56, 182, 255, 0.3);
+}
+
+.layout-seastones .sea-btn.active {
+    background: #38b6ff;
+    color: #0a2463;
+    box-shadow: 0 5px 15px rgba(56, 182, 255, 0.5);
+}
+
+.layout-seastones .sea-main-btn {
+    background: #38b6ff;
+    color: #0a2463;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.layout-seastones .sea-main-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(56, 182, 255, 0.5);
+}
+
+.layout-seastones .sea-clock {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 5em;
+    text-align: center;
+    color: #a5d8ff;
+    margin: 40px 0;
+    text-shadow: 0 0 25px rgba(56, 182, 255, 0.7);
+    font-weight: 700;
+}
+
+.layout-seastones .sea-visual {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.layout-seastones .stones-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.layout-seastones .stone {
+    width: 60px;
+    height: 60px;
+    background: #c4b7a6;
+    border-radius: 50%;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.3),
+        inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: stone-float 4s ease-in-out infinite;
+}
+
+.layout-seastones .stone-1 { animation-delay: 0s; }
+.layout-seastones .stone-2 { animation-delay: 0.5s; }
+.layout-seastones .stone-3 { animation-delay: 1s; }
+.layout-seastones .stone-4 { animation-delay: 1.5s; }
+
+@keyframes stone-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.layout-seastones .tide-indicator {
+    width: 100%;
+    height: 15px;
+    background: rgba(56, 182, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid rgba(56, 182, 255, 0.3);
+}
+
+.layout-seastones .tide-fill {
+    height: 100%;
+    background: linear-gradient(to right, #38b6ff, #a5d8ff);
+    width: 100%;
+    border-radius: 10px;
+    transition: width 1s ease;
+}
+
+.layout-seastones .sea-status {
+    font-size: 1.2em;
+    color: #a5d8ff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.layout-seastones .sea-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.layout-seastones .sea-action {
+    background: rgba(56, 182, 255, 0.2);
+    color: #e6f7ff;
+    border: 2px solid #38b6ff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 150px;
+    justify-content: center;
+}
+
+.layout-seastones .sea-action:hover {
+    background: rgba(56, 182, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 182, 255, 0.3);
+}
+
+.layout-seastones .start-sea {
+    background: #38b6ff;
+    color: #0a2463;
+}
+
+.layout-seastones .sea-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 30px;
+    border-top: 2px solid rgba(56, 182, 255, 0.3);
+}
+
+.layout-seastones .sea-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    color: #a5d8ff;
+}
+
+.layout-seastones .sea-stat i {
+    font-size: 1.5em;
+    color: #38b6ff;
+}
+
+/* ===== МАКЕТ RUNNING GUY (БЕГ) ===== */
+.layout-running {
+    width: 100%;
+}
+
+.layout-running .track-container {
+    background: linear-gradient(to bottom, #1a3c2e, #2d5a45);
+    min-height: 700px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(26, 60, 46, 0.5);
+    padding: 40px;
+}
+
+.layout-running .track {
+    width: 100%;
+    height: 150px;
+    background: #3b825b;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 50px;
+    box-shadow: 
+        inset 0 5px 15px rgba(0, 0, 0, 0.3),
+        0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.layout-running .track-lines {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-around;
+}
+
+.layout-running .track-line {
+    width: 4px;
+    height: 30px;
+    background: #bbf7d0;
+    margin: 0 20px;
+}
+
+.layout-running .runner {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    width: 60px;
+    height: 80px;
+    z-index: 3;
+    transition: left 30s linear;
+}
+
+.layout-running .runner-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.layout-running .runner-head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 25px;
+    background: #ffcc00;
+    border-radius: 50%;
+}
+
+.layout-running .runner-arm,
+.layout-running .runner-leg {
+    position: absolute;
+    background: #4ade80;
+}
+
+.layout-running .runner-arm {
+    width: 25px;
+    height: 8px;
+    top: 30px;
+}
+
+.layout-running .runner-arm-left {
+    left: -10px;
+    transform: rotate(45deg);
+    animation: armSwingLeft 0.5s ease-in-out infinite alternate;
+}
+
+.layout-running .runner-arm-right {
+    right: -10px;
+    transform: rotate(-45deg);
+    animation: armSwingRight 0.5s ease-in-out infinite alternate;
+}
+
+.layout-running .runner-leg {
+    width: 8px;
+    height: 35px;
+    bottom: 0;
+}
+
+.layout-running .runner-leg-left {
+    left: 15px;
+    animation: legSwingLeft 0.5s ease-in-out infinite alternate;
+}
+
+.layout-running .runner-leg-right {
+    right: 15px;
+    animation: legSwingRight 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes armSwingLeft {
+    0% { transform: rotate(30deg); }
+    100% { transform: rotate(60deg); }
+}
+
+@keyframes armSwingRight {
+    0% { transform: rotate(-30deg); }
+    100% { transform: rotate(-60deg); }
+}
+
+@keyframes legSwingLeft {
+    0% { transform: translateY(0) rotate(10deg); }
+    100% { transform: translateY(-10px) rotate(-10deg); }
+}
+
+@keyframes legSwingRight {
+    0% { transform: translateY(-10px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(-10deg); }
+}
+
+.layout-running .finish-line {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    width: 5px;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        #ff4444,
+        #ff4444 10px,
+        #ffffff 10px,
+        #ffffff 20px
+    );
+    z-index: 2;
+}
+
+.layout-running .running-timer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.layout-running .running-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.layout-running .running-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #bbf7d0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-shadow: 0 2px 10px rgba(74, 222, 128, 0.5);
+}
+
+.layout-running .running-theme {
+    display: flex;
+    justify-content: center;
+}
+
+.layout-running .running-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.layout-running .distance-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.layout-running .distance-btn {
+    background: rgba(59, 130, 91, 0.3);
+    color: #f0fdf4;
+    border: 2px solid #4ade80;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.layout-running .distance-btn:hover {
+    background: rgba(74, 222, 128, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(74, 222, 128, 0.3);
+}
+
+.layout-running .distance-btn.active {
+    background: #4ade80;
+    color: #1a3c2e;
+    box-shadow: 0 5px 15px rgba(74, 222, 128, 0.5);
+}
+
+.layout-running .running-main-btn {
+    background: #4ade80;
+    color: #1a3c2e;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.layout-running .running-main-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(74, 222, 128, 0.5);
+}
+
+.layout-running .running-clock {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 4.5em;
+    text-align: center;
+    color: #bbf7d0;
+    margin: 40px 0;
+    text-shadow: 0 0 25px rgba(74, 222, 128, 0.7);
+    font-weight: 700;
+}
+
+.layout-running .running-info {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.layout-running .speedometer {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 30px;
+    position: relative;
+    background: conic-gradient(
+        #4ade80 0%,
+        #4ade80 var(--speed-percent, 0%),
+        rgba(74, 222, 128, 0.2) var(--speed-percent, 0%),
+        rgba(74, 222, 128, 0.2) 100%
+    );
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.layout-running .speedometer::before {
+    content: '';
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background: #2d5a45;
+    border-radius: 50%;
+}
+
+.layout-running .speed-fill {
+    position: absolute;
+    z-index: 2;
+    color: #bbf7d0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.layout-running .pace-text {
+    font-size: 1.3em;
+    color: #bbf7d0;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.layout-running .distance-tracker {
+    font-size: 1.2em;
+    color: #f0fdf4;
+    background: rgba(74, 222, 128, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.layout-running .running-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.layout-running .run-action {
+    background: rgba(74, 222, 128, 0.2);
+    color: #f0fdf4;
+    border: 2px solid #4ade80;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 150px;
+    justify-content: center;
+}
+
+.layout-running .run-action:hover {
+    background: rgba(74, 222, 128, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(74, 222, 128, 0.3);
+}
+
+.layout-running .start-run {
+    background: #4ade80;
+    color: #1a3c2e;
+}
+
+.layout-running .running-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 30px;
+    border-top: 2px solid rgba(74, 222, 128, 0.3);
+    flex-wrap: wrap;
+}
+
+.layout-running .run-stat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    color: #bbf7d0;
+    background: rgba(74, 222, 128, 0.1);
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+
+.layout-running .run-stat i {
+    font-size: 1.5em;
+    color: #4ade80;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 768px) {
-    .page {
-        padding: 25px;
-    }
-    
-    .timer_title h1 {
-        font-size: 2.2rem;
-    }
-    
-    .timechoose {
-        gap: 15px;
-    }
-    
-    .timechoose button {
-        width: 90px;
-        height: 55px;
-        font-size: 1.2rem;
-    }
-    
-    .timer_clock {
-        font-size: 4.5rem;
-        padding: 25px 50px;
-    }
-    
-    .plant_container {
-        width: 180px;
-        height: 180px;
-    }
-    
-    .timer_time button {
-        width: 65px;
-        height: 65px;
-    }
-    
-    .plant-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .modal-content {
-        width: 95%;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-    
-    .page {
+    .layout-narcissus .timer,
+    .layout-seastones .sea-timer,
+    .layout-running .running-timer {
         padding: 20px;
     }
     
-    .timer_title h1 {
-        font-size: 1.8rem;
+    .layout-narcissus .timer_clock,
+    .layout-seastones .sea-clock,
+    .layout-running .running-clock {
+        font-size: 3.5em;
     }
     
-    .timer_clock {
-        font-size: 3.5rem;
-        padding: 20px 30px;
-    }
-    
-    .plant_container {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .timechoose {
+    .layout-narcissus .userchoose,
+    .layout-seastones .sea-controls,
+    .layout-running .running-controls {
         flex-direction: column;
-        align-items: center;
     }
     
-    .timechoose button {
-        width: 100%;
-        max-width: 200px;
-    }
-    
-    .timer_time {
+    .layout-narcissus .timechoose,
+    .layout-seastones .sea-time-buttons,
+    .layout-running .distance-buttons {
         flex-wrap: wrap;
         justify-content: center;
-    }
-    
-    .timer_time button {
-        width: 60px;
-        height: 60px;
     }
     
     .plant-grid {
         grid-template-columns: 1fr;
     }
     
-    .modal-header h2 {
-        font-size: 1.8rem;
+    .layout-running .track {
+        height: 100px;
     }
+    
+    .layout-running .runner {
+        width: 40px;
+        height: 60px;
+        left: 30px;
+    }
+    
+    .layout-running .running-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ УВЕДОМЛЕНИЙ ===== */
+.completion-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(46, 125, 50, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    z-index: 1001;
+    animation: slideIn 0.5s ease, fadeOut 0.5s ease 2.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-icon {
+    font-size: 1.5em;
 }
